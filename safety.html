@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Hygiene Audit & Incident Response — CyberGuard | SIWES 2026</title>
+    <meta name="description" content="Benchmark your personal cybersecurity readiness with an interactive audit and study step-by-step incident response playbooks for common threat scenarios.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="brand-wrapper">
+                <div class="brand-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+                <div class="brand-text">
+                    <span class="brand-name">CyberGuard <span class="nav-chip">SIWES 26</span></span>
+                    <span class="brand-sub">Cybersecurity Awareness Platform</span>
+                </div>
+            </a>
+
+            <nav class="nav-links" id="main-nav">
+                <a href="index.html" class="nav-link"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg> Home</a>
+                <a href="passwords.html" class="nav-link"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/></svg> Password Lab</a>
+                <a href="phishing.html" class="nav-link"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg> Phishing Simulator</a>
+                <a href="safety.html" class="nav-link active"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg> Safety Audit</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="icon-btn sound-toggle-btn" title="Toggle Sound" aria-label="Toggle Sound"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M12 6v12m0-12l-4 4H4v4h4l4 4"/></svg></button>
+                <button class="icon-btn theme-toggle-btn" title="Toggle Theme" aria-label="Toggle Theme"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg></button>
+                <button class="icon-btn mobile-menu-btn" id="mobile-menu-btn" aria-label="Open Menu"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="status-bar">
+        <div class="status-left">
+            <div class="status-dot"></div>
+            <span>MODULE — HYGIENE AUDIT & INCIDENT READINESS</span>
+        </div>
+        <div class="status-right">
+            <span class="tip-label">TIP —</span>
+            <span id="daily-tip-text">Follow the 3-2-1 backup rule: 3 copies of data, 2 different media, 1 offsite.</span>
+            <button id="shuffle-tip-btn" class="tip-shuffle-btn"><svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg> Next</button>
+        </div>
+    </div>
+
+    <main>
+
+        <!-- Page Banner -->
+        <div class="page-banner">
+            <div class="page-banner-content">
+                <h2>
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                    Cyber Hygiene Audit
+                </h2>
+                <p>
+                    Good cybersecurity is not a one-time setup — it's a continuous posture. 
+                    Answer four questions to receive a personalized Cyber Readiness Grade, 
+                    then study emergency step-by-step playbooks for common threat scenarios.
+                </p>
+            </div>
+            <div class="page-banner-stats">
+                <div class="stat-pill">
+                    <span class="num">3-2-1</span>
+                    <span class="lbl">Backup Rule</span>
+                </div>
+                <div class="stat-pill">
+                    <span class="num">Zero</span>
+                    <span class="lbl">Implicit Trust</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Readiness Audit -->
+        <div class="tool-section">
+            <div class="tool-header">
+                <h3 class="tool-title">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+                    Cyber Readiness Self-Assessment
+                </h3>
+                <span class="card-tag">Instant Results</span>
+            </div>
+
+            <p style="font-size: 13.5px; color: var(--text-1); margin-bottom: 24px;">
+                Answer 4 core questions about your daily digital practices to receive your 
+                personal Cyber Readiness Grade and tailored improvement recommendations.
+            </p>
+
+            <div id="audit-container">
+                <!-- Populated by script.js -->
+            </div>
+        </div>
+
+        <!-- Incident Response Playbooks -->
+        <div style="margin-bottom: 40px;" id="incident-response">
+            <div class="section-header" style="margin-bottom: 20px;">
+                <div class="section-label">Emergency Playbooks</div>
+                <h2 class="section-title">Incident Response Protocols</h2>
+                <p class="section-desc">If you suspect compromise, click a scenario to review immediate containment and recovery steps.</p>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-trigger" type="button">
+                        <span>Playbook 1 — I clicked a suspicious link or entered credentials on a fake portal</span>
+                        <svg class="accordion-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="accordion-body">
+                        <ol>
+                            <li><strong>Disconnect from Network Immediately:</strong> Disable Wi-Fi and unplug Ethernet to cut off any active command-and-control communication with the attacker's server.</li>
+                            <li><strong>Change Passwords from Another Device:</strong> From a clean, uncompromised device (e.g., your phone on mobile data), change the password for the affected account and any others sharing it.</li>
+                            <li><strong>Terminate All Active Sessions:</strong> Use the account's security dashboard (Google, Microsoft, Bank) to sign out of all other active sessions.</li>
+                            <li><strong>Review MFA Devices and Email Rules:</strong> Verify the attacker has not added a foreign MFA device, recovery email, or email forwarding filter.</li>
+                            <li><strong>Run a Full Malware Scan:</strong> Use Windows Defender or Malwarebytes in offline mode to scan for any dropped payloads.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-trigger" type="button">
+                        <span>Playbook 2 — My credentials appeared in a public data breach</span>
+                        <svg class="accordion-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="accordion-body">
+                        <ol>
+                            <li><strong>Identify Reused Accounts:</strong> Stolen credentials are immediately fed into credential-stuffing bots. If you used that password on 10 websites, all 10 are now at risk.</li>
+                            <li><strong>Generate Unique Replacement Passwords:</strong> Use our <a href="passwords.html#generator">Password Generator</a> to create a distinct 16+ character password for each service.</li>
+                            <li><strong>Enable TOTP-Based 2FA:</strong> Add Time-based One-Time Passwords (Google Authenticator / Authy) to all financial and primary email accounts.</li>
+                            <li><strong>Monitor Financial Activity:</strong> Watch card transactions closely and sign up for breach notification alerts on HaveIBeenPwned.com.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-trigger" type="button">
+                        <span>Playbook 3 — Suspected ransomware or malware infection</span>
+                        <svg class="accordion-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="accordion-body">
+                        <ol>
+                            <li><strong>Isolate Instantly:</strong> Disable Wi-Fi and disconnect from all local networks immediately to prevent malware from propagating to shared drives or other devices.</li>
+                            <li><strong>Do Not Pay the Ransom:</strong> Law enforcement agencies advise against paying. Payment funds criminal operations and provides no guarantee of a working decryptor.</li>
+                            <li><strong>Boot into Safe Mode:</strong> Start the OS in Safe Mode with Networking disabled to prevent malicious auto-run services from loading.</li>
+                            <li><strong>Restore from Air-Gapped Backups:</strong> Wipe the drive, reinstall the OS, and restore data from offline or versioned cloud backups not connected during the infection.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-trigger" type="button">
+                        <span>Playbook 4 — Social media or email account hijacked</span>
+                        <svg class="accordion-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="accordion-body">
+                        <ol>
+                            <li><strong>Initiate Official Account Recovery:</strong> Visit the platform's official recovery page (e.g., instagram.com/hacked) and use identity verification to reclaim access.</li>
+                            <li><strong>Revoke Third-Party App Permissions:</strong> Audit and revoke OAuth access for any unrecognized third-party applications connected to the account.</li>
+                            <li><strong>Alert Your Contacts:</strong> Attackers frequently message your friends requesting emergency money or SMS codes. Notify people via an alternative channel to disregard these messages.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hardening Cards -->
+        <div class="section-header">
+            <div class="section-label">Hardening Principles</div>
+            <h2 class="section-title">Device & Network Defense</h2>
+        </div>
+
+        <div class="grid-3">
+            <div class="cyber-card">
+                <div class="card-header">
+                    <div class="module-icon cyan" style="width:36px;height:36px;">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    </div>
+                    <span class="card-tag">Device</span>
+                </div>
+                <div class="card-title">Endpoint Hardening</div>
+                <div class="card-body">
+                    Enable full-disk encryption (BitLocker on Windows, FileVault on macOS). 
+                    Set your screen lock timeout to under 3 minutes when in public or campus environments. 
+                    Disable auto-run for removable media.
+                </div>
+            </div>
+
+            <div class="cyber-card">
+                <div class="card-header">
+                    <div class="module-icon green" style="width:36px;height:36px;">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/></svg>
+                    </div>
+                    <span class="card-tag green">Network</span>
+                </div>
+                <div class="card-title">Public Wi-Fi Hygiene</div>
+                <div class="card-body">
+                    Public networks in airports and cafés can be cloned as "evil twin" hotspots. 
+                    Always use a reputable VPN or your phone's mobile hotspot for 
+                    banking, student portals, and any sensitive tasks.
+                </div>
+            </div>
+
+            <div class="cyber-card">
+                <div class="card-header">
+                    <div class="module-icon blue" style="width:36px;height:36px;">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/></svg>
+                    </div>
+                    <span class="card-tag blue">Data</span>
+                </div>
+                <div class="card-title">The 3-2-1 Backup Rule</div>
+                <div class="card-body">
+                    Maintain <strong>3</strong> total copies of critical academic and work data, 
+                    on <strong>2</strong> different media types (e.g., SSD + cloud), 
+                    with <strong>1</strong> copy stored offsite or in versioned cloud storage.
+                </div>
+            </div>
+        </div>
+
+        <!-- Safety Checklist -->
+        <div class="checklist-wrap" id="checklist">
+            <div class="checklist-head">
+                <div>
+                    <h3>Personal Security Hardening Checklist</h3>
+                    <p style="font-size: 13px; color: var(--text-2); margin-top: 4px;">Track your defense roadmap. Progress saves in your local browser storage.</p>
+                </div>
+                <span id="safety-checklist-progress-text" class="progress-badge">0 / 5</span>
+            </div>
+            <div class="progress-track">
+                <div id="safety-checklist-progress-fill" class="progress-fill"></div>
+            </div>
+            <ul class="checklist" id="safety-checklist">
+                <li class="check-item"><input type="checkbox" id="scheck-1"><label for="scheck-1" class="item-body"><strong>Automatic Updates:</strong> OS, antivirus, and browser updates are set to install automatically.</label></li>
+                <li class="check-item"><input type="checkbox" id="scheck-2"><label for="scheck-2" class="item-body"><strong>Screen Lock:</strong> My laptop and phone require biometric or PIN unlock within 3 minutes of inactivity.</label></li>
+                <li class="check-item"><input type="checkbox" id="scheck-3"><label for="scheck-3" class="item-body"><strong>VPN on Untrusted Networks:</strong> I never access sensitive portals over public Wi-Fi without an active VPN.</label></li>
+                <li class="check-item"><input type="checkbox" id="scheck-4"><label for="scheck-4" class="item-body"><strong>Encrypted Storage:</strong> BitLocker or FileVault is enabled to protect data if my device is lost or stolen.</label></li>
+                <li class="check-item"><input type="checkbox" id="scheck-5"><label for="scheck-5" class="item-body"><strong>Offsite Backups:</strong> Critical projects and documents back up to versioned cloud storage regularly.</label></li>
+            </ul>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <div class="footer-logo-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+                    <span class="footer-logo-name">CyberGuard</span>
+                </div>
+                <p>An interactive cybersecurity awareness platform built as a SIWES technical project.</p>
+                <div class="footer-tag">Defensive Cybersecurity · Educational Tool</div>
+            </div>
+            <div class="footer-col">
+                <h5>Platform Tools</h5>
+                <ul>
+                    <li><a href="passwords.html">Password Entropy Meter</a></li>
+                    <li><a href="passwords.html#generator">Credential Generator</a></li>
+                    <li><a href="phishing.html">Phishing Inbox Simulator</a></li>
+                    <li><a href="phishing.html#inspector">URL Inspector</a></li>
+                    <li><a href="safety.html">Hygiene Audit</a></li>
+                    <li><a href="defense_guide.html" style="color:var(--cyan); font-weight:600;">📑 Defense Guide (PDF)</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Defense Guides</h5>
+                <ul>
+                    <li><a href="safety.html#incident-response">Incident Response</a></li>
+                    <li><a href="passwords.html#checklist">Password Best Practices</a></li>
+                    <li><a href="phishing.html#checklist">Spotting Fake Domains</a></li>
+                    <li><a href="safety.html#checklist">Device Hardening</a></li>
+                    <li><a href="defense_guide.html">Supervisor Q&A Manual</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Prominent SIWES Defense Documentation PDF Card -->
+        <div class="footer-defense-card">
+            <div class="footer-defense-content">
+                <span class="footer-defense-pill">📄 SIWES Defense Documentation</span>
+                <h4>Technical Project Manual & Supervisor Q&A Guide (PDF)</h4>
+                <p>Complete documentation for defense presentation: front-end architecture, website breakdown, and 25+ supervisor defense questions with direct model answers.</p>
+            </div>
+            <div class="footer-defense-action">
+                <a href="defense_guide.html" class="btn btn-primary" style="display:inline-flex; align-items:center; gap:8px;">
+                    <span>📥</span> Open / Download PDF Guide
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-credits-box">
+                <div class="footer-copyright">
+                    <span class="footer-blue-icon">🏛️</span>
+                    <span>© 2026/2027 CyberGuard · Faculty of Computing & Informatics, LAUTECH</span>
+                </div>
+                <div class="footer-developer">
+                    <span class="footer-badge-dev">SIWES DEVELOPER</span>
+                    <span>Developed by <strong class="developer-name">Oyebamiji Joshua Jesutofunmi</strong></span>
+                    <span class="developer-divider">·</span>
+                    <span class="developer-matric">Matric: <strong>2024004116</strong></span>
+                    <span class="developer-divider">·</span>
+                    <span class="developer-dept">Dept. of Cyber Security Science <em>(Front-End Development)</em></span>
+                </div>
+            </div>
+            <div class="footer-status">MODULE: DEFENSES SYNCHRONIZED</div>
+        </div>
+    </footer>
+
+    <div id="toast-container"></div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Defense Simulator — CyberGuard | SIWES 2026</title>
+    <meta name="description" content="Interactive phishing email defense simulator. Inspect realistic attack emails, identify red flags, and test suspicious URLs with our heuristic analyzer.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="brand-wrapper">
+                <div class="brand-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+                <div class="brand-text">
+                    <span class="brand-name">CyberGuard <span class="nav-chip">SIWES 26</span></span>
+                    <span class="brand-sub">Cybersecurity Awareness Platform</span>
+                </div>
+            </a>
+
+            <nav class="nav-links" id="main-nav">
+                <a href="index.html" class="nav-link"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg> Home</a>
+                <a href="passwords.html" class="nav-link"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/></svg> Password Lab</a>
+                <a href="phishing.html" class="nav-link active"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg> Phishing Simulator</a>
+                <a href="safety.html" class="nav-link"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg> Safety Audit</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="icon-btn sound-toggle-btn" title="Toggle Sound" aria-label="Toggle Sound"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M12 6v12m0-12l-4 4H4v4h4l4 4"/></svg></button>
+                <button class="icon-btn theme-toggle-btn" title="Toggle Theme" aria-label="Toggle Theme"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg></button>
+                <button class="icon-btn mobile-menu-btn" id="mobile-menu-btn" aria-label="Open Menu"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="status-bar">
+        <div class="status-left">
+            <div class="status-dot"></div>
+            <span>MODULE — SOCIAL ENGINEERING RECOGNITION</span>
+        </div>
+        <div class="status-right">
+            <span class="tip-label">TIP —</span>
+            <span id="daily-tip-text">Always inspect the actual sender email address, not just the display name.</span>
+            <button id="shuffle-tip-btn" class="tip-shuffle-btn"><svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg> Next</button>
+        </div>
+    </div>
+
+    <main>
+
+        <!-- Page Banner -->
+        <div class="page-banner">
+            <div class="page-banner-content">
+                <h2>
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    Phishing Defense Simulator
+                </h2>
+                <p>
+                    Phishing manipulates human psychology, not machine vulnerabilities. 
+                    Practice your identification skills on four realistic simulated email attacks, 
+                    dissect the red flags, and test suspicious URLs with our heuristic inspector.
+                </p>
+            </div>
+            <div class="page-banner-stats">
+                <div class="stat-pill">
+                    <span class="num">90%</span>
+                    <span class="lbl">Breaches via Phishing</span>
+                </div>
+                <div class="stat-pill">
+                    <span class="num">3.4B</span>
+                    <span class="lbl">Malicious Emails / Day</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Inbox Simulator -->
+        <div class="inbox-panel">
+            <div class="inbox-bar">
+                <div class="inbox-bar-title">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"/></svg>
+                    Inbox Defense Simulator
+                </div>
+                <div id="phish-score-badge" class="score-pill">Score: 0 / 4 Verified</div>
+            </div>
+
+            <div class="inbox-tabs" id="inbox-tabs">
+                <!-- Populated by script.js -->
+            </div>
+
+            <div class="email-view" id="email-view-container">
+                <!-- Populated by script.js -->
+            </div>
+        </div>
+
+        <!-- URL Inspector -->
+        <div class="url-inspector" id="inspector">
+            <div class="tool-header" style="border-bottom: 1px solid var(--border-0); padding-bottom: 18px; margin-bottom: 20px;">
+                <h3 class="tool-title">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+                    Suspicious URL Inspector
+                </h3>
+                <span class="card-tag">Real-Time Heuristic Analysis</span>
+            </div>
+
+            <p style="font-size: 13.5px; color: var(--text-1); margin-bottom: 14px;">
+                Paste any suspicious link to analyze for domain spoofing, raw IP hosts, dangerous TLDs, and typosquatting. Or try a preset below.
+            </p>
+
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <input type="text" id="url-inspect-input" class="cyber-input" style="flex:1; min-width: 260px; font-family: var(--font-body);" placeholder="Paste URL — e.g. http://login.bank.com.verify-portal.net…">
+                <button type="button" id="btn-analyze-url" class="btn btn-primary">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                    Analyze
+                </button>
+            </div>
+
+            <div class="url-chips">
+                <span style="font-size: 11.5px; color: var(--text-2); align-self: center;">Try a sample:</span>
+                <button type="button" class="url-chip" data-url="http://192.168.1.1/login">Raw IP Host</button>
+                <button type="button" class="url-chip" data-url="https://paypal.com.verify-security-account.net/signin">Subdomain Spoof</button>
+                <button type="button" class="url-chip" data-url="http://bank-chase-update.top/security">High-Risk TLD</button>
+                <button type="button" class="url-chip" data-url="https://accounts.google.com">Authentic (Safe)</button>
+            </div>
+
+            <div id="url-inspect-result" class="url-result">
+                <!-- Populated by script.js -->
+            </div>
+        </div>
+
+        <!-- Red Flags Breakdown -->
+        <div class="section-header">
+            <div class="section-label">Attack Vectors</div>
+            <h2 class="section-title">Common Phishing Techniques</h2>
+        </div>
+
+        <div class="grid-3">
+            <div class="cyber-card">
+                <div class="card-header">
+                    <div class="module-icon red" style="width:36px;height:36px;">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                    </div>
+                    <span class="card-tag red">Vector 1</span>
+                </div>
+                <div class="card-title">Deceptive Sender Domains</div>
+                <div class="card-body">
+                    Attackers display a name like <em>"University Registrar"</em> while the actual address is 
+                    <code>support@university-portal.xyz</code>. Always expand the sender header and 
+                    inspect the domain after the <code>@</code> symbol.
+                </div>
+            </div>
+
+            <div class="cyber-card">
+                <div class="card-header">
+                    <div class="module-icon amber" style="width:36px;height:36px;">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <span class="card-tag amber">Vector 2</span>
+                </div>
+                <div class="card-title">Fabricated Urgency & Fear</div>
+                <div class="card-body">
+                    Phrases like <em>"Account suspended in 2 hours"</em> or <em>"Arrest warrant issued"</em> 
+                    provoke panic, causing victims to bypass rational verification. 
+                    Legitimate institutions do not demand credentials over email.
+                </div>
+            </div>
+
+            <div class="cyber-card">
+                <div class="card-header">
+                    <div class="module-icon blue" style="width:36px;height:36px;">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"/></svg>
+                    </div>
+                    <span class="card-tag blue">Vector 3</span>
+                </div>
+                <div class="card-title">Weaponized Attachments</div>
+                <div class="card-body">
+                    Watch for unexpected invoices or receipts with dangerous extensions: 
+                    <code>.iso</code>, <code>.vbs</code>, <code>.hta</code>, or double extensions 
+                    like <code>invoice.pdf.exe</code>. Never open attachments from unexpected senders.
+                </div>
+            </div>
+        </div>
+
+        <!-- Checklist -->
+        <div class="checklist-wrap" id="checklist">
+            <div class="checklist-head">
+                <div>
+                    <h3>Phishing Verification Protocol</h3>
+                    <p style="font-size: 13px; color: var(--text-2); margin-top: 4px;">Perform these steps before clicking any unsolicited link or downloading an attachment.</p>
+                </div>
+                <span id="phishing-checklist-progress-text" class="progress-badge">0 / 5</span>
+            </div>
+            <div class="progress-track">
+                <div id="phishing-checklist-progress-fill" class="progress-fill"></div>
+            </div>
+            <ul class="checklist" id="phishing-checklist">
+                <li class="check-item"><input type="checkbox" id="phcheck-1"><label for="phcheck-1" class="item-body"><strong>Inspect Sender Domain:</strong> I expand the sender header and verify the domain matches the organization's official website.</label></li>
+                <li class="check-item"><input type="checkbox" id="phcheck-2"><label for="phcheck-2" class="item-body"><strong>Hover Before Clicking:</strong> I hover all links to check the real destination URL in the status bar.</label></li>
+                <li class="check-item"><input type="checkbox" id="phcheck-3"><label for="phcheck-3" class="item-body"><strong>Out-of-Band Verification:</strong> If an email demands urgent funds or password changes, I verify through an official phone number or channel.</label></li>
+                <li class="check-item"><input type="checkbox" id="phcheck-4"><label for="phcheck-4" class="item-body"><strong>No Credentials via Email:</strong> I never send passwords, OTPs, or financial details in reply to any email request.</label></li>
+                <li class="check-item"><input type="checkbox" id="phcheck-5"><label for="phcheck-5" class="item-body"><strong>Scan Attachments:</strong> I do not open unexpected attachments without running an antivirus or sandbox check.</label></li>
+            </ul>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <div class="footer-logo-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+                    <span class="footer-logo-name">CyberGuard</span>
+                </div>
+                <p>An interactive cybersecurity awareness platform built as a SIWES technical project.</p>
+                <div class="footer-tag">Defensive Cybersecurity · Educational Tool</div>
+            </div>
+            <div class="footer-col">
+                <h5>Platform Tools</h5>
+                <ul>
+                    <li><a href="passwords.html">Password Entropy Meter</a></li>
+                    <li><a href="passwords.html#generator">Credential Generator</a></li>
+                    <li><a href="phishing.html">Phishing Inbox Simulator</a></li>
+                    <li><a href="phishing.html#inspector">URL Inspector</a></li>
+                    <li><a href="safety.html">Hygiene Audit</a></li>
+                    <li><a href="defense_guide.html" style="color:var(--cyan); font-weight:600;">📑 Defense Guide (PDF)</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Defense Guides</h5>
+                <ul>
+                    <li><a href="safety.html#incident-response">Incident Response</a></li>
+                    <li><a href="passwords.html#checklist">Password Best Practices</a></li>
+                    <li><a href="phishing.html#checklist">Spotting Fake Domains</a></li>
+                    <li><a href="safety.html#checklist">Device Hardening</a></li>
+                    <li><a href="defense_guide.html">Supervisor Q&A Manual</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Prominent SIWES Defense Documentation PDF Card -->
+        <div class="footer-defense-card">
+            <div class="footer-defense-content">
+                <span class="footer-defense-pill">📄 SIWES Defense Documentation</span>
+                <h4>Technical Project Manual & Supervisor Q&A Guide (PDF)</h4>
+                <p>Complete documentation for defense presentation: front-end architecture, website breakdown, and 25+ supervisor defense questions with direct model answers.</p>
+            </div>
+            <div class="footer-defense-action">
+                <a href="defense_guide.html" class="btn btn-primary" style="display:inline-flex; align-items:center; gap:8px;">
+                    <span>📥</span> Open / Download PDF Guide
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-credits-box">
+                <div class="footer-copyright">
+                    <span class="footer-blue-icon">🏛️</span>
+                    <span>© 2026/2027 CyberGuard · Faculty of Computing & Informatics, LAUTECH</span>
+                </div>
+                <div class="footer-developer">
+                    <span class="footer-badge-dev">SIWES DEVELOPER</span>
+                    <span>Developed by <strong class="developer-name">Oyebamiji Joshua Jesutofunmi</strong></span>
+                    <span class="developer-divider">·</span>
+                    <span class="developer-matric">Matric: <strong>2024004116</strong></span>
+                    <span class="developer-divider">·</span>
+                    <span class="developer-dept">Dept. of Cyber Security Science <em>(Front-End Development)</em></span>
+                </div>
+            </div>
+            <div class="footer-status">MODULE: THREATS MONITORED</div>
+        </div>
+    </footer>
+
+    <div id="toast-container"></div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberGuard — Cybersecurity Awareness Platform | SIWES 2026</title>
+    <meta name="description" content="An interactive cybersecurity awareness platform covering password defense, phishing identification, and personal security hygiene. SIWES project by Oyebamiji Joshua.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="brand-wrapper">
+                <div class="brand-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">CyberGuard <span class="nav-chip">SIWES 26</span></span>
+                    <span class="brand-sub">Cybersecurity Awareness Platform</span>
+                </div>
+            </a>
+
+            <nav class="nav-links" id="main-nav">
+                <a href="index.html" class="nav-link active">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                    Home
+                </a>
+                <a href="passwords.html" class="nav-link">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/></svg>
+                    Password Lab
+                </a>
+                <a href="phishing.html" class="nav-link">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    Phishing Simulator
+                </a>
+                <a href="safety.html" class="nav-link">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                    Safety Audit
+                </a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="icon-btn sound-toggle-btn" title="Toggle Sound" aria-label="Toggle Sound">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M12 6v12m0-12l-4 4H4v4h4l4 4"/></svg>
+                </button>
+                <button class="icon-btn theme-toggle-btn" title="Toggle Theme" aria-label="Toggle Theme">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                <button class="icon-btn mobile-menu-btn" id="mobile-menu-btn" aria-label="Open Menu">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="status-bar">
+        <div class="status-left">
+            <div class="status-dot"></div>
+            <span>DEFENSE PLATFORM — ONLINE</span>
+        </div>
+        <div class="status-right">
+            <span class="tip-label">TIP —</span>
+            <span id="daily-tip-text">Never reuse passwords across academic and financial accounts.</span>
+            <button id="shuffle-tip-btn" class="tip-shuffle-btn" title="Next tip">
+                <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                Next
+            </button>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-eyebrow">
+                    <span class="hero-eyebrow-dot"></span>
+                    SIWES 2026 · Cybersecurity Science · LAUTECH
+                </div>
+                <h1 class="hero-title">
+                    Defending yourself<br>in a <em>threat-driven</em><br>digital world
+                </h1>
+                <p class="hero-desc">
+                    Over 80% of data breaches involve stolen credentials or human-targeted deception. 
+                    This platform teaches you to test password strength, recognize phishing attacks, 
+                    and measure your personal security posture — all hands-on.
+                </p>
+                <div class="hero-actions">
+                    <a href="passwords.html" class="btn btn-primary btn-lg">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/></svg>
+                        Password Lab
+                    </a>
+                    <a href="phishing.html" class="btn btn-secondary btn-lg">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        Phishing Sim
+                    </a>
+                    <a href="safety.html" class="btn btn-ghost btn-lg">Security Audit →</a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-terminal">
+                    <div class="terminal-bar">
+                        <div class="terminal-dots">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <div class="terminal-title">cyberguard — threat-scanner v2.0</div>
+                    </div>
+                    <div class="terminal-body">
+                        <div class="t-line"><span class="t-prompt">$</span><span class="t-cmd">run --scan personal-security</span></div>
+                        <div class="t-line"><span class="t-out">Initializing threat assessment engine...</span></div>
+                        <div class="t-line"><span class="t-out ok">✓ Password entropy module loaded</span></div>
+                        <div class="t-line"><span class="t-out ok">✓ Phishing detection engine ready</span></div>
+                        <div class="t-line"><span class="t-out ok">✓ Hygiene audit framework active</span></div>
+                        <div class="t-line">&nbsp;</div>
+                        <div class="t-line"><span class="t-prompt">$</span><span class="t-cmd">analyze --password "P@$$w0rd"</span></div>
+                        <div class="t-line"><span class="t-out warn">⚠ Entropy: 34.2 bits  [WEAK]</span></div>
+                        <div class="t-line"><span class="t-out err">✗ Dictionary pattern detected</span></div>
+                        <div class="t-line"><span class="t-out err">✗ Crack time: ~3 minutes</span></div>
+                        <div class="t-line">&nbsp;</div>
+                        <div class="t-line"><span class="t-prompt">$</span><span class="t-cmd" id="typed-cmd"><span class="t-cursor"></span></span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Row -->
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-value">3.4B+</div>
+                <div class="stat-label">Phishing Emails per Day</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">81%</div>
+                <div class="stat-label">Breaches from Weak Passwords</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">$4.45M</div>
+                <div class="stat-label">Avg. Cost of a Data Breach</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">95%</div>
+                <div class="stat-label">Attacks Trace to Human Error</div>
+            </div>
+        </div>
+
+        <!-- Defense Modules -->
+        <div class="section-header" style="margin-bottom: 28px;">
+            <div class="section-label">Interactive Labs</div>
+            <h2 class="section-title">Defense Modules</h2>
+            <p class="section-desc">Practical, browser-based tools — no account needed, no data leaves your device.</p>
+        </div>
+
+        <div class="modules-grid" style="margin-bottom: 64px;">
+            <a href="passwords.html" class="module-card" data-color="cyan">
+                <div>
+                    <div class="module-icon cyan">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/></svg>
+                    </div>
+                </div>
+                <div class="module-tag">Module 01 · Interactive Tool</div>
+                <div class="module-title">Password Strength<br>& Generator Lab</div>
+                <div class="module-desc">Type any password and get real-time Shannon entropy, estimated GPU crack time, and rule-by-rule analysis. Generate cryptographically random credentials.</div>
+                <div class="module-link">
+                    Open Lab
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </div>
+            </a>
+
+            <a href="phishing.html" class="module-card" data-color="red">
+                <div>
+                    <div class="module-icon red">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    </div>
+                </div>
+                <div class="module-tag">Module 02 · Simulator</div>
+                <div class="module-title">Phishing Email<br>Defense Simulator</div>
+                <div class="module-desc">Inspect four realistic phishing scenarios — corporate, banking, university, and spear-phishing. Spot red flags and test suspicious URLs in our heuristic inspector.</div>
+                <div class="module-link">
+                    Launch Simulator
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </div>
+            </a>
+
+            <a href="safety.html" class="module-card" data-color="green">
+                <div>
+                    <div class="module-icon green">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                    </div>
+                </div>
+                <div class="module-tag">Module 03 · Self-Assessment</div>
+                <div class="module-title">Cyber Hygiene Audit<br>& Incident Response</div>
+                <div class="module-desc">Answer a short readiness questionnaire to receive a personal security grade, then study step-by-step incident playbooks for common threat scenarios.</div>
+                <div class="module-link">
+                    Run Audit
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </div>
+            </a>
+        </div>
+
+        <!-- Two Column: Quiz + Pillars -->
+        <div class="grid-2">
+            <!-- Daily Challenge -->
+            <div class="cyber-card" id="home-quiz-box">
+                <div class="card-header">
+                    <div class="module-icon blue" style="width:36px;height:36px;">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <span class="card-tag">Quick Test</span>
+                </div>
+                <div class="card-title">Daily Cyber Challenge</div>
+                <div class="card-body">Test your instincts with real-world attack scenarios:</div>
+                <div id="home-quiz-card" class="quiz-box">
+                    <!-- Populated by script.js -->
+                </div>
+            </div>
+
+            <!-- Pillars of Defense -->
+            <div class="cyber-card">
+                <div class="card-header">
+                    <div class="module-icon amber" style="width:36px;height:36px;">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                    </div>
+                    <span class="card-tag amber">Core Principles</span>
+                </div>
+                <div class="card-title">The 4 Pillars of Cyber Defense</div>
+                <div class="pillars-list">
+                    <div class="pillar-item">
+                        <span class="pillar-num">01</span>
+                        <div class="pillar-body"><strong>Zero Trust Mindset.</strong> Never trust unsolicited messages or links by default. Always verify identity through an out-of-band channel.</div>
+                    </div>
+                    <div class="pillar-item">
+                        <span class="pillar-num">02</span>
+                        <div class="pillar-body"><strong>Multi-Factor Everywhere.</strong> Layer access so stolen passwords alone cannot grant entry to your accounts.</div>
+                    </div>
+                    <div class="pillar-item">
+                        <span class="pillar-num">03</span>
+                        <div class="pillar-body"><strong>Patch & Upgrade Promptly.</strong> Keep operating systems and software patched against known exploits.</div>
+                    </div>
+                    <div class="pillar-item">
+                        <span class="pillar-num">04</span>
+                        <div class="pillar-body"><strong>3-2-1 Backups.</strong> Three copies, two media types, one offsite — the ransomware antidote.</div>
+                    </div>
+                </div>
+                <a href="safety.html" class="btn btn-ghost btn-sm" style="align-self:flex-start; margin-top: auto;">View Incident Guides →</a>
+            </div>
+        </div>
+
+        <!-- Glossary -->
+        <div class="section-header" style="margin-bottom: 24px;">
+            <div class="section-label">Reference</div>
+            <div class="glossary-controls">
+                <h2 class="section-title">Cybersecurity Glossary</h2>
+                <div class="glossary-search">
+                    <input type="text" id="glossary-search-input" class="cyber-input" placeholder="Search — Ransomware, 2FA, MITM…" style="font-family: var(--font-body); font-size: 13px;">
+                </div>
+            </div>
+            <p class="section-desc" style="margin-top: 4px;">Key terms every cybersecurity student should know — searchable and filterable.</p>
+        </div>
+
+        <div class="glossary-grid" id="glossary-grid">
+            <!-- Rendered by script.js -->
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <div class="footer-logo-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                    </div>
+                    <span class="footer-logo-name">CyberGuard</span>
+                </div>
+                <p>An interactive cybersecurity awareness platform built as a SIWES technical project — covering password defense, phishing recognition, and personal security hygiene assessment.</p>
+                <div class="footer-tag">Defensive Cybersecurity · Educational Tool</div>
+            </div>
+
+            <div class="footer-col">
+                <h5>Platform Tools</h5>
+                <ul>
+                    <li><a href="passwords.html">Password Entropy Meter</a></li>
+                    <li><a href="passwords.html#generator">Credential Generator</a></li>
+                    <li><a href="phishing.html">Phishing Inbox Simulator</a></li>
+                    <li><a href="phishing.html#inspector">URL Inspector</a></li>
+                    <li><a href="safety.html">Hygiene Audit</a></li>
+                    <li><a href="defense_guide.html" style="color:var(--cyan); font-weight:600;">📑 Defense Guide (PDF)</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h5>Defense Guides</h5>
+                <ul>
+                    <li><a href="safety.html#incident-response">Incident Response</a></li>
+                    <li><a href="passwords.html#checklist">Password Best Practices</a></li>
+                    <li><a href="phishing.html#checklist">Spotting Fake Domains</a></li>
+                    <li><a href="safety.html#checklist">Device Hardening</a></li>
+                    <li><a href="defense_guide.html">Supervisor Q&A Manual</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Prominent SIWES Defense Documentation PDF Card -->
+        <div class="footer-defense-card">
+            <div class="footer-defense-content">
+                <span class="footer-defense-pill">📄 SIWES Defense Documentation</span>
+                <h4>Technical Project Manual & Supervisor Q&A Guide (PDF)</h4>
+                <p>Complete documentation for defense presentation: front-end architecture, website breakdown, and 25+ supervisor defense questions with direct model answers.</p>
+            </div>
+            <div class="footer-defense-action">
+                <a href="defense_guide.html" class="btn btn-primary" style="display:inline-flex; align-items:center; gap:8px;">
+                    <span>📥</span> Open / Download PDF Guide
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-credits-box">
+                <div class="footer-copyright">
+                    <span class="footer-blue-icon">🏛️</span>
+                    <span>© 2026/2027 CyberGuard · Faculty of Computing & Informatics, LAUTECH</span>
+                </div>
+                <div class="footer-developer">
+                    <span class="footer-badge-dev">SIWES DEVELOPER</span>
+                    <span>Developed by <strong class="developer-name">Oyebamiji Joshua Jesutofunmi</strong></span>
+                    <span class="developer-divider">·</span>
+                    <span class="developer-matric">Matric: <strong>2024004116</strong></span>
+                    <span class="developer-divider">·</span>
+                    <span class="developer-dept">Dept. of Cyber Security Science <em>(Front-End Development)</em></span>
+                </div>
+            </div>
+            <div class="footer-status">STATUS: ONLINE</div>
+        </div>
+    </footer>
+
+    <div id="toast-container"></div>
+    <script src="script.js"></script>
+</body>
+</html>

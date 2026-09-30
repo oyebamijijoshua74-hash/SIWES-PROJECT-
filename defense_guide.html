@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIWES Project Defense Guide — Oyebamiji Joshua (Front-End Web Development)</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Printable & Readable Defense Documentation Styles */
+        body {
+            background-color: #070b14;
+            color: #e2e8f0;
+            padding-bottom: 60px;
+            font-family: var(--font-body, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+            line-height: 1.6;
+        }
+
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 24px 20px;
+        }
+
+        /* Top Action Bar (Screen Only) */
+        .pdf-action-banner {
+            background: #0d1527;
+            border: 1.5px solid #00d2ff;
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            position: sticky;
+            top: 14px;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .pdf-action-banner h4 {
+            margin: 0;
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .pdf-action-banner p {
+            margin: 3px 0 0;
+            font-size: 12px;
+            color: #94a3b8;
+        }
+
+        .btn-print {
+            background: #00d2ff;
+            color: #04070f;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+        }
+
+        .btn-print:hover {
+            background: #38bdf8;
+        }
+
+        .btn-back {
+            background: transparent;
+            color: #94a3b8;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 13px;
+            text-decoration: none;
+        }
+
+        .btn-back:hover {
+            color: #ffffff;
+            border-color: #ffffff;
+        }
+
+        /* Cover Box */
+        .doc-cover {
+            background: #0b1325;
+            border: 1px solid #1e293b;
+            border-top: 4px solid #00d2ff;
+            border-radius: 8px;
+            padding: 28px;
+            margin-bottom: 24px;
+        }
+
+        .doc-cover h1 {
+            font-size: 24px;
+            color: #ffffff;
+            margin: 6px 0 10px;
+            line-height: 1.3;
+        }
+
+        .doc-cover p {
+            color: #94a3b8;
+            font-size: 14px;
+            margin: 0 0 18px;
+        }
+
+        .student-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13.5px;
+            background: #060a14;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid #1e293b;
+        }
+
+        .student-table td {
+            padding: 10px 14px;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        .student-table td:first-child {
+            width: 32%;
+            color: #64748b;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.05em;
+        }
+
+        .student-table td:last-child {
+            color: #f1f5f9;
+            font-weight: 600;
+        }
+
+        /* Section Cards */
+        .doc-section {
+            background: #0b1325;
+            border: 1px solid #1e293b;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 22px;
+        }
+
+        .doc-section h2 {
+            font-size: 18px;
+            color: #ffffff;
+            border-bottom: 2px solid #00d2ff;
+            padding-bottom: 8px;
+            margin: 0 0 14px 0;
+        }
+
+        .doc-section h3 {
+            font-size: 15px;
+            color: #38bdf8;
+            margin: 18px 0 8px 0;
+        }
+
+        .doc-section p, .doc-section li {
+            color: #cbd5e1;
+            font-size: 13.5px;
+            line-height: 1.6;
+        }
+
+        .doc-section ul, .doc-section ol {
+            padding-left: 20px;
+            margin: 8px 0;
+        }
+
+        .doc-section li {
+            margin-bottom: 6px;
+        }
+
+        /* Spoken Speech Box */
+        .speech-box {
+            background: rgba(0, 210, 255, 0.06);
+            border-left: 4px solid #00d2ff;
+            border-radius: 4px;
+            padding: 14px 16px;
+            margin: 12px 0;
+            font-size: 13.5px;
+            color: #e2e8f0;
+        }
+
+        .speech-box strong {
+            color: #00d2ff;
+        }
+
+        /* Q&A Cards */
+        .qa-card {
+            background: #060a14;
+            border: 1px solid #1e293b;
+            border-left: 4px solid #00d2ff;
+            border-radius: 6px;
+            padding: 16px;
+            margin-bottom: 14px;
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        .qa-card.code {
+            border-left-color: #38bdf8;
+        }
+
+        .qa-card.trap {
+            border-left-color: #f59e0b;
+        }
+
+        .qa-question {
+            font-size: 14.5px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .qa-intent {
+            font-size: 12px;
+            color: #94a3b8;
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+
+        .qa-answer {
+            background: #0c1527;
+            border-radius: 4px;
+            padding: 12px 14px;
+            font-size: 13px;
+            color: #cbd5e1;
+            line-height: 1.6;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .qa-answer strong {
+            color: #ffffff;
+        }
+
+        .code-box {
+            background: #03060c;
+            border: 1px solid #1e293b;
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-family: monospace;
+            font-size: 12px;
+            color: #38bdf8;
+            margin: 8px 0;
+            overflow-x: auto;
+        }
+
+        /* Simple Card Grid */
+        .two-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 12px 0;
+        }
+
+        .mini-card {
+            background: #060a14;
+            border: 1px solid #1e293b;
+            border-radius: 6px;
+            padding: 12px 14px;
+        }
+
+        .mini-card h4 {
+            margin: 0 0 4px;
+            font-size: 13.5px;
+            color: #ffffff;
+        }
+
+        .mini-card p {
+            margin: 0;
+            font-size: 12.5px;
+            color: #94a3b8;
+        }
+
+        /* Printable PDF Styling */
+        @media print {
+            @page {
+                size: A4;
+                margin: 14mm 12mm 14mm 12mm;
+            }
+
+            body {
+                background: #ffffff !important;
+                color: #0f172a !important;
+                padding: 0 !important;
+                font-size: 10pt !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .pdf-action-banner, header, footer {
+                display: none !important;
+            }
+
+            .guide-container {
+                max-width: 100% !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+
+            .doc-cover {
+                background: #f8fafc !important;
+                border: 1px solid #cbd5e1 !important;
+                border-top: 4px solid #0284c7 !important;
+                color: #0f172a !important;
+                padding: 16px !important;
+                margin-bottom: 16px !important;
+            }
+
+            .doc-cover h1 {
+                color: #0f172a !important;
+                font-size: 18pt !important;
+            }
+
+            .student-table {
+                background: #ffffff !important;
+                border: 1px solid #cbd5e1 !important;
+            }
+
+            .student-table td {
+                border-bottom: 1px solid #e2e8f0 !important;
+                padding: 6px 10px !important;
+            }
+
+            .student-table td:first-child {
+                color: #475569 !important;
+            }
+
+            .student-table td:last-child {
+                color: #0f172a !important;
+            }
+
+            .doc-section {
+                background: #ffffff !important;
+                border: 1px solid #cbd5e1 !important;
+                padding: 14px 16px !important;
+                margin-bottom: 14px !important;
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
+            .doc-section h2 {
+                color: #0284c7 !important;
+                border-bottom: 1.5px solid #0284c7 !important;
+                font-size: 13pt !important;
+            }
+
+            .doc-section h3 {
+                color: #0369a1 !important;
+                font-size: 11pt !important;
+            }
+
+            .doc-section p, .doc-section li {
+                color: #1e293b !important;
+                font-size: 9pt !important;
+            }
+
+            .speech-box {
+                background: #f0f9ff !important;
+                border-left: 3px solid #0284c7 !important;
+                color: #0f172a !important;
+            }
+
+            .qa-card {
+                background: #ffffff !important;
+                border: 1px solid #cbd5e1 !important;
+                border-left: 3px solid #0284c7 !important;
+                padding: 10px 12px !important;
+                margin-bottom: 10px !important;
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+
+            .qa-question {
+                color: #0f172a !important;
+                font-size: 10pt !important;
+            }
+
+            .qa-intent {
+                color: #64748b !important;
+                font-size: 8.5pt !important;
+            }
+
+            .qa-answer {
+                background: #f8fafc !important;
+                border: 1px solid #e2e8f0 !important;
+                color: #1e293b !important;
+                font-size: 8.5pt !important;
+                padding: 8px 10px !important;
+            }
+
+            .code-box {
+                background: #f1f5f9 !important;
+                color: #0f172a !important;
+                border: 1px solid #cbd5e1 !important;
+                font-size: 8pt !important;
+            }
+
+            .mini-card {
+                background: #f8fafc !important;
+                border: 1px solid #e2e8f0 !important;
+            }
+
+            .mini-card h4 {
+                color: #0f172a !important;
+            }
+
+            .mini-card p {
+                color: #475569 !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .two-grid {
+                grid-template-columns: 1fr;
+            }
+            .pdf-action-banner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="brand-wrapper">
+                <div class="brand-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <h1>CyberGuard <span class="brand-badge">SIWES 2026</span></h1>
+                    <p class="brand-subtitle">Front-End Development Project Manual</p>
+                </div>
+            </a>
+
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link"><span>🏠</span> Home</a>
+                <a href="passwords.html" class="nav-link"><span>🔑</span> Password Lab</a>
+                <a href="phishing.html" class="nav-link"><span>🎣</span> Phishing Simulator</a>
+                <a href="safety.html" class="nav-link"><span>🛡️</span> Safety & Audit</a>
+                <a href="defense_guide.html" class="nav-link active"><span>📑</span> Defense Guide</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="icon-btn theme-toggle-btn" aria-label="Toggle Theme">🌙</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="guide-container">
+
+        <!-- Action Bar for Download/Print -->
+        <div class="pdf-action-banner">
+            <div>
+                <h4>📑 Defense Manual & Questions (PDF Format)</h4>
+                <p>Everything you need for your SIWES defense: simple explanations, code notes, and direct answers.</p>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button onclick="window.print()" class="btn-print">
+                    <span>🖨️</span> Save as PDF / Print
+                </button>
+                <a href="index.html" class="btn-back">
+                    <span>←</span> Back to Website
+                </a>
+            </div>
+        </div>
+
+        <!-- Student Cover Details -->
+        <div class="doc-cover">
+            <span style="font-size:11px; text-transform:uppercase; color:#00d2ff; font-weight:700; letter-spacing:0.05em;">LAUTECH SIWES Technical Defense Report</span>
+            <h1>CyberGuard: <span>Front-End Cybersecurity Awareness Web Application</span></h1>
+            <p>
+                Technical documentation, page breakdown, and complete defense interview guide for the Students Industrial Work Experience Scheme (SIWES).
+            </p>
+
+            <table class="student-table">
+                <tr>
+                    <td>Student Name</td>
+                    <td>OYEBAMIJI JOSHUA JESUTOFUNMI</td>
+                </tr>
+                <tr>
+                    <td>Matriculation No</td>
+                    <td>2024004116</td>
+                </tr>
+                <tr>
+                    <td>Department</td>
+                    <td>Department of Cyber Security Science</td>
+                </tr>
+                <tr>
+                    <td>Faculty</td>
+                    <td>Faculty of Computing and Informatics</td>
+                </tr>
+                <tr>
+                    <td>Institution</td>
+                    <td>Ladoke Akintola University of Technology (LAUTECH), Ogbomoso</td>
+                </tr>
+                <tr>
+                    <td>SIWES Technical Focus</td>
+                    <td>Front-End Web Development (HTML5, CSS3, JavaScript)</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Section 1: The 3-Minute Defense Presentation (Exact Words to Say) -->
+        <div class="doc-section">
+            <h2><span>1.</span> Your 3-Minute Defense Speech (What to Say)</h2>
+            <p>
+                When your supervisor or the panel says: <em>"Joshua, tell us about your project and what you did during SIWES"</em>, do not panic or use big textbook grammar. Memorize or practice this simple flow:
+            </p>
+
+            <div class="speech-box">
+                <strong>Step 1: Introduction (30 seconds)</strong><br>
+                "Good day, Sir and Ma. My name is Oyebamiji Joshua Jesutofunmi, with matric number 2024004116 from the Department of Cyber Security Science. During my SIWES attachment, my technical training was focused on <strong>Front-End Web Development</strong>. For my project, I designed and built <strong>CyberGuard</strong>, an interactive web platform that educates users on everyday cybersecurity habits."
+            </div>
+
+            <div class="speech-box">
+                <strong>Step 2: The Problem You Solved (30 seconds)</strong><br>
+                "Most people get hacked not because computer systems are weak, but because of human mistakes — using weak passwords or clicking fake links. Usually, cybersecurity awareness is taught using long PDF documents or boring slides that people don't read. I wanted to solve this by building a website where users learn by doing — testing their passwords in real-time, examining real-looking phishing emails, and checking their personal security habits."
+            </div>
+
+            <div class="speech-box">
+                <strong>Step 3: Live Demonstration (1 minute)</strong><br>
+                "Let me briefly demonstrate the website:
+                <br>• On the <strong>Password Lab</strong>, when I type a password, the website instantly tests its length, character variety, and tells you how hard it is to crack.
+                <br>• On the <strong>Phishing Simulator</strong>, users can inspect 4 real-world email samples, flag suspicious buttons, and see the exact red flags.
+                <br>• On the <strong>Safety Audit</strong>, users answer questions about their Wi-Fi and updates to get a security grade."
+            </div>
+
+            <div class="speech-box">
+                <strong>Step 4: The Technologies Used (30 seconds)</strong><br>
+                "I built the entire website using <strong>HTML5</strong> for page structure, <strong>CSS3</strong> with Grid and Flexbox for responsive design on phones and laptops, and <strong>Vanilla JavaScript</strong> for the logic and calculations. Everything runs directly inside the user's browser, which means user passwords are completely private and never leave their computer. Thank you, Sir and Ma, I am ready for your questions."
+            </div>
+        </div>
+
+        <!-- Section 2: Simple Breakdown of What Each Page Does -->
+        <div class="doc-section">
+            <h2><span>2.</span> Complete Website Walkthrough (Page by Page)</h2>
+            <p>Here is everything that exists on the website so you know every corner of it:</p>
+
+            <div class="two-grid">
+                <div class="mini-card">
+                    <h4>1. Home Page (index.html)</h4>
+                    <p>• <strong>Hero Section:</strong> Explains what the site is with quick start buttons.<br>
+                    • <strong>Daily Security Challenge:</strong> A 3-question quiz with instant answers.<br>
+                    • <strong>Daily Tip Ticker:</strong> Practical security tips you can cycle through.<br>
+                    • <strong>Threat Encyclopedia:</strong> A glossary of cyber attack terms with an instant search box that filters as you type.</p>
+                </div>
+
+                <div class="mini-card">
+                    <h4>2. Password Lab (passwords.html)</h4>
+                    <p>• <strong>Live Password Meter:</strong> Checks length, numbers, letters, symbols, and estimated crack time as the user types.<br>
+                    • <strong>Password Generator:</strong> Creates strong random passwords with a single click.<br>
+                    • <strong>Interactive Checklist:</strong> Saves checked items to browser memory (LocalStorage) so progress isn't lost on refresh.</p>
+                </div>
+
+                <div class="mini-card">
+                    <h4>3. Phishing Simulator (phishing.html)</h4>
+                    <p>• <strong>4 Email Scenarios:</strong> 3 phishing emails (fake password reset, fake bank transfer, fake salary bonus) + 1 authentic university email (to teach users not to flag good emails).<br>
+                    • <strong>Voting Buttons:</strong> Flag as Phishing vs Mark as Legitimate.<br>
+                    • <strong>URL Inspector:</strong> A box where you paste any link, and it checks if the website looks suspicious.</p>
+                </div>
+
+                <div class="mini-card">
+                    <h4>4. Safety & Audit (safety.html)</h4>
+                    <p>• <strong>Hygiene Assessment:</strong> Questions on Wi-Fi, 2FA, backups, and software updates that give you an overall grade (A to D).<br>
+                    • <strong>Emergency Playbooks:</strong> Step-by-step guides on what to do if your phone is lost, account is hacked, or you clicked a bad link.<br>
+                    • <strong>Device Checklist:</strong> Hardening steps with saved progress.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: The Code Explained in Simple English -->
+        <div class="doc-section">
+            <h2><span>3.</span> How the Code Works (Simple Front-End Explanations)</h2>
+            <p>If a supervisor points at the code, here is how you explain each part in simple words:</p>
+
+            <h3>A. How JavaScript updates the screen (DOM Manipulation)</h3>
+            <p>
+                <strong>In simple words:</strong> HTML elements have an <code>id</code>. JavaScript grabs that element using <code>document.getElementById()</code> and changes what's inside it or updates its style.
+            </p>
+            <div class="code-box">
+// Example: Updating the password strength bar width
+const meter = document.getElementById('pwd-meter-fill');
+meter.style.width = '80%';
+meter.style.backgroundColor = '#00e87a';
+            </div>
+            <p style="font-size:12.5px; color:#94a3b8;">
+                <strong>How to say it:</strong> <em>"Sir, this line grabs the meter bar by its ID and changes its width to 80% and turns it green when the password is strong."</em>
+            </p>
+
+            <h3>B. How it reacts when the user types (Event Listeners)</h3>
+            <p>
+                <strong>In simple words:</strong> An event listener is a watcher. It waits for the user to do something (like clicking a button or pressing a key on the keyboard).
+            </p>
+            <div class="code-box">
+const input = document.getElementById('pwd-input');
+input.addEventListener('input', () => {
+    // This runs immediately every time a key is pressed!
+    checkPassword(input.value);
+});
+            </div>
+            <p style="font-size:12.5px; color:#94a3b8;">
+                <strong>How to say it:</strong> <em>"Ma, the 'input' event listener fires every time a letter is typed, so the password score recalculates in real-time without needing to click a submit button."</em>
+            </p>
+
+            <h3>C. How it remembers checkboxes on refresh (LocalStorage)</h3>
+            <p>
+                <strong>In simple words:</strong> <code>localStorage</code> is like a mini notepad built into the web browser. It saves small settings so they don't disappear when the user reloads.
+            </p>
+            <div class="code-box">
+// Saving: turns the checkbox list into a text string
+localStorage.setItem('user_checklist', JSON.stringify(checkedList));
+
+// Loading: reads the text string back when the user opens the site
+const saved = JSON.parse(localStorage.getItem('user_checklist') || '{}');
+            </div>
+            <p style="font-size:12.5px; color:#94a3b8;">
+                <strong>How to say it:</strong> <em>"Sir, instead of building a heavy database for simple checkboxes, we save them directly in the user's browser using localStorage."</em>
+            </p>
+
+            <h3>D. How it looks good on mobile phones (CSS Media Queries)</h3>
+            <p>
+                <strong>In simple words:</strong> A media query checks how wide the screen is. If the screen is small (like a phone), it rearranges 3 columns into 1 single column.
+            </p>
+            <div class="code-box">
+@media (max-width: 768px) {
+    .modules-grid { grid-template-columns: 1fr; } /* 1 single column on phone */
+}
+            </div>
+            <p style="font-size:12.5px; color:#94a3b8;">
+                <strong>How to say it:</strong> <em>"Ma, when the screen width is under 768 pixels, this rule makes the cards stack neatly so users don't have to zoom in on their phone."</em>
+            </p>
+        </div>
+
+        <!-- Section 4: All Possible Defense Questions & Direct Answers -->
+        <div class="doc-section">
+            <h2><span>4.</span> Top Defense Questions & Answers (Memorize These)</h2>
+            <p>
+                These are the most common questions supervisors ask front-end students. The answers are written in plain, natural English so you can speak them comfortably.
+            </p>
+
+            <!-- Group 1: General & Project Basics -->
+            <h3 style="color:#00d2ff;">Part A: About the Project</h3>
+
+            <div class="qa-card">
+                <div class="qa-question">Q1: What is the title and purpose of your project?</div>
+                <div class="qa-intent">Supervisor wants to check: Do you know what you built?</div>
+                <div class="qa-answer">
+                    <strong>Answer:</strong> "The project is titled <strong>CyberGuard</strong>. It is an interactive front-end web application designed to teach students and ordinary users basic cybersecurity habits — specifically how to create strong passwords, how to spot phishing emails, and how to maintain basic device hygiene."
+                </div>
+            </div>
+
+            <div class="qa-card">
+                <div class="qa-question">Q2: Why did you choose this topic for your SIWES project?</div>
+                <div class="qa-intent">Supervisor wants to check: Was there a real motivation?</div>
+                <div class="qa-answer">
+                    <strong>Answer:</strong> "Because during my training, I noticed that most cyber attacks in Nigeria (like banking scams and account takeovers) happen because people use simple passwords or fall for fake emails. Traditional awareness is usually boring text. By combining my front-end web skills with cybersecurity, I wanted to create an educational tool where people learn by interacting with live simulations."
+                </div>
+            </div>
+
+            <div class="qa-card">
+                <div class="qa-question">Q3: What was your specific role during your SIWES attachment?</div>
+                <div class="qa-intent">Supervisor wants to check: Did you actually do the coding?</div>
+                <div class="qa-answer">
+                    <strong>Answer:</strong> "My attachment was focused on <strong>Front-End Web Development</strong>. My role was learning and practicing how to build web pages using HTML5 for structure, CSS3 for styling and responsive layouts, and JavaScript for client-side user interactions and calculations. I designed and coded all the pages of this website myself as my final project."
+                </div>
+            </div>
+
+            <!-- Group 2: Front-End Coding Questions -->
+            <h3 style="color:#38bdf8; margin-top:24px;">Part B: Front-End Code & Implementation</h3>
+
+            <div class="qa-card code">
+                <div class="qa-question">Q4: Why did you use pure HTML, CSS, and JavaScript instead of frameworks like React, Angular, or Bootstrap?</div>
+                <div class="qa-intent">Classic question: Why vanilla JS instead of frameworks?</div>
+                <div class="qa-answer">
+                    <strong>Answer:</strong> "Sir/Ma, as an undergraduate student on SIWES, my priority was to understand the core fundamentals of web development first — how the DOM works, how events work, and how to write clean CSS from scratch. Using pure HTML, CSS, and JavaScript also means the website has no heavy external packages, loads in less than a second, and works completely offline directly in the browser."
+                </div>
+            </div>
+
+            <div class="qa-card code">
+                <div class="qa-question">Q5: How does your Password Strength Meter calculate strength?</div>
+                <div class="qa-intent">Supervisor wants to check: Can you explain the logic without memorizing confusing formulas?</div>
+                <div class="qa-answer">
+                    <strong>Answer:</strong> "The password meter checks three main things as you type:
+                    <br>1. <strong>Length:</strong> How many characters long it is.
+                    <br>2. <strong>Character Variety:</strong> Whether it contains lowercase letters, uppercase letters, numbers, and symbols.
+                    <br>3. <strong>Entropy (Randomness):</strong> It calculates how many possible combinations exist based on the character types used. If a password is long and uses mixed characters, the score increases and the meter turns green. If it's short or only numbers, it flags it as weak."
+                </div>
+            </div>
+
+            <div class="qa-card code">
+                <div class="qa-question">Q6: How does the random password generator work?</div>
+                <div class="qa-intent">Supervisor wants to check: How did you generate random text?</div>
+                <div class="qa-answer">
+                    <strong>Answer:</strong> "In JavaScript, we take the character sets the user checked (letters, numbers, symbols). We make sure at least one character from each selected set is added first. Then we fill the rest of the password length using <code>Math.random()</code> to pick characters from the pool. Finally, we shuffle the characters so they are mixed in random order."
+                </div>
+            </div>
+
+            <div class="qa-card code">
+                <div class="qa-question">Q7: In the Phishing Simulator, how does the URL Inspector work?</div>
+                <div class="qa-intent">Supervisor wants to check: How do you detect fake links in JavaScript?</div>
+                <div class="qa-answer">
+                    <strong>Answer:</strong> "When a user pastes a web link, JavaScript parses the link and checks common phishing tricks:
+                    <br>• Does it start with <code>http://</code> instead of secure <code>https://</code>?
+                    <br>• Is it using a raw IP address (like <code>192.168.1.1</code>) instead of a real website name?
+                    <br>• Does it have too many subdomains trying to hide the real name (for example: <code>paypal.com.account-verify.net</code>)?
+                    <br>If any of these are found, it adds a warning flag and explains the danger."
+                </div>
+            </div>
+
+            <div class="qa-card code">
+                <div class="qa-question">Q8: How did you implement Dark Mode and Light Mode?</div>
+                <div class="qa-intent">Supervisor wants to check: Do you know CSS variables?</div>
+                <div class="qa-answer">
+                    <strong>Answer:</strong> "In <code>style.css</code>, all colors are defined as CSS variables at the top of the file. In JavaScript, when the user clicks the moon/sun button, it adds a <code>data-theme='light'</code> attribute to the HTML tag. The CSS variables immediately switch to light colors, and the choice is saved in <code>localStorage</code> so it remembers your preference."
+                </div>
+            </div>
+
+            <div class="qa-card code">
+                <div class="qa-question">Q9: How did you make sure the website looks good on both a laptop and a mobile phone?</div>
+                <div class="qa-intent">Supervisor wants to check: Do you understand responsive design?</div>
+                <div class="qa-answer">
+                    <strong>Answer:</strong> "I used two main techniques:
+                    <br>1. <strong>CSS Grid and Flexbox:</strong> They allow boxes to wrap and adjust size automatically.
+                    <br>2. <strong>CSS Media Queries (<code>@media (max-width: 768px)</code>):</strong> When the browser detects a smaller phone screen, it changes multi-column grids into a single vertical column so everything is readable without horizontal scrolling."
+                </div>
+            </div>
+
+            <div class="qa-card code">
+                <div class="qa-question">Q10: Where is the database? Where is user data stored?</div>
+                <div class="qa-intent">Supervisor wants to check: Does this project have a backend?</div>
+                <div class="qa-answer">
+                    <strong>Answer:</strong> "Sir/Ma, there is deliberately no backend database. Because this is a privacy-sensitive educational tool where users type passwords and test habits, keeping everything client-side inside the user's browser (using <code>localStorage</code>) ensures that no personal data or passwords ever leave the computer. This guarantees 100% privacy."
+                </div>
+            </div>
+
+            <!-- Group 3: Common Supervisor Trap Questions -->
+            <h3 style="color:#f59e0b; margin-top:24px;">Part C: Tricky / "Trap" Questions</h3>
+
+            <div class="qa-card trap">
+                <div class="qa-question">Q11: Why is there a legitimate (authentic) email in your phishing simulator? Isn't it supposed to be an attack simulator?</div>
+                <div class="qa-intent">The trap: They want to see if you understand real-world security training.</div>
+                <div class="qa-answer">
+                    <strong>Answer:</strong> "That was a deliberate design decision. In real life, if staff or students flag every single email as phishing, normal university or business work stops. We included <em>Scenario 4: Campus IT Scheduled Maintenance</em> to teach users what genuine communication looks like (official domain, non-threatening tone, no asking for passwords). It teaches people to evaluate emails carefully rather than developing blind panic."
+                </div>
+            </div>
+
+            <div class="qa-card trap">
+                <div class="qa-question">Q12: Did you write this code yourself or did you download a template?</div>
+                <div class="qa-intent">The trap: Supervisors always ask this to test confidence.</div>
+                <div class="qa-answer">
+                    <strong>Answer:</strong> "I developed the project myself during my SIWES placement. I wrote the HTML structure, designed the CSS styling and color variables from scratch, and implemented the JavaScript logic for the password meter, URL analyzer, and quizzes. I can walk you through any line of code in <code>script.js</code> or <code>style.css</code> right now if you would like to test it."
+                </div>
+            </div>
+
+            <div class="qa-card trap">
+                <div class="qa-question">Q13: Can someone use your Password Generator to hack someone's account?</div>
+                <div class="qa-intent">The trap: Testing if you understand the difference between offense and defense.</div>
+                <div class="qa-answer">
+                    <strong>Answer:</strong> "No, Sir/Ma. The Password Generator is purely defensive. It is designed to help users create strong, unguessable passwords for their own accounts instead of using weak names or birthdays. It does not test passwords against external systems or crack passwords."
+                </div>
+            </div>
+
+            <div class="qa-card trap">
+                <div class="qa-question">Q14: What was the biggest bug or problem you faced while coding this, and how did you fix it?</div>
+                <div class="qa-intent">The trap: Every supervisor wants to hear a real debugging story.</div>
+                <div class="qa-answer">
+                    <strong>Answer:</strong> "My biggest challenge was making the password meter update smoothly without lagging. At first, testing multiple regular expressions and recalculating possible combinations on every single keystroke made typing feel slow. I fixed it by simplifying the calculation function in JavaScript and caching DOM element references so the browser doesn't have to look up elements repeatedly on every letter."
+                </div>
+            </div>
+
+            <div class="qa-card trap">
+                <div class="qa-question">Q15: If you had another 3 months to work on this, what would you add?</div>
+                <div class="qa-intent">Supervisor wants to check: Can you critically evaluate your own work?</div>
+                <div class="qa-answer">
+                    <strong>Answer:</strong> "I would add two features:
+                    <br>1. <strong>Progressive Web App (PWA):</strong> Add a service worker so users can install CyberGuard as an app on their Android phones and use it completely offline.
+                    <br>2. <strong>More Scenarios:</strong> Expand the simulator to include SMS scams (Smishing) and WhatsApp fake job alerts, which are very common in Nigeria today."
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 5: Defense Day Practical Tips -->
+        <div class="doc-section">
+            <h2><span>5.</span> Practical Defense Day Advice</h2>
+            <ul>
+                <li><strong>Dress Well & Speak Clearly:</strong> Walk in with confidence. Greet the panel respectfully ("Good morning/afternoon, Sir and Ma").</li>
+                <li><strong>Don't Rush Your Words:</strong> When asked a question, take a breath, pause for 2 seconds, and answer in simple, direct sentences.</li>
+                <li><strong>Keep Your Demo Short:</strong> Only show the 2 coolest features: the live typing password meter and the phishing email test. Don't waste 10 minutes clicking every link.</li>
+                <li><strong>If You Don't Know Something:</strong> Never argue or make up fake technical terms. Say: <em>"That is a very good observation, Sir. In this version I focused on the client-side front end, but that is something I will explore in future improvements."</em></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Official Website Footer -->
+    <footer>
+        <div class="footer-bottom">
+            <div class="footer-credits-box">
+                <div class="footer-copyright">
+                    <span class="footer-blue-icon">🏛️</span>
+                    <span>© 2026/2027 CyberGuard · Faculty of Computing & Informatics, LAUTECH</span>
+                </div>
+                <div class="footer-developer">
+                    <span class="footer-badge-dev">SIWES DEVELOPER</span>
+                    <span>Developed by <strong class="developer-name">Oyebamiji Joshua Jesutofunmi</strong></span>
+                    <span class="developer-divider">·</span>
+                    <span class="developer-matric">Matric: <strong>2024004116</strong></span>
+                    <span class="developer-divider">·</span>
+                    <span class="developer-dept">Dept. of Cyber Security Science <em>(Front-End Development)</em></span>
+                </div>
+            </div>
+            <div class="footer-status">STATUS: ONLINE</div>
+        </div>
+    </footer>
+
+    <!-- Script connection for theme toggle -->
+    <script src="script.js"></script>
+</body>
+</html>
